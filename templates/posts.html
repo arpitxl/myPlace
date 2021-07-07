@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block title %}Post{% endblock title %}
+{% block cssLink %}posts{% endblock cssLink %}
+{% block body %}
+<div class="topic">
+    <p>FILL THE DETAILS BELOW !!</p>
+</div>
+<div class="form">
+    <form action="/post/" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+        <p class="labels">Title : 
+            <input class="inputs inps" type="text" name="title" required>
+        </p>
+        <p class="txt">Description : </p>
+        <textarea class="inputs txts" name="description" required rows="10" cols="100"></textarea>
+        <p class="labels">Category : 
+            <select name="category" class="sel" required>
+                <option value="None">----Select----</option>
+                <option value="Hall">Hall</option>
+                <option value="Room">Room</option>
+                <option value="Theatre">Theatre</option>
+                <option value="Terrace">Terrace</option>
+                <option value="Ground">Ground</option>
+                <option value="Others">Others</option>
+            </select>
+        </p>
+        <p class="labels">Price : 
+            <input class="inputs inps" type="number" name="price" required>
+        </p>
+        <p class="labels">State : 
+            <input class="inputs inps" type="text" name="state" required>
+        </p>
+        <p class="labels">City : 
+            <input class="inputs inps" type="text" name="city" required>
+        </p>
+        <p class="labels">Location : 
+            <input class="inputs inps" type="text" name="location">
+        </p>
+        <p class="labels">Select an Image : 
+            <input class="img" type="file" name="photo" accept="image/*" required>
+        </p>
+        <div class="btn">
+            <button class="inputs inpBtns" type="submit">POST</button>
+        </div>
+    </form>
+</div>
+{% if messages %}
+    <div class="messages">
+        {% for message in messages %}
+        <p {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+        {% endfor %}
+    </div>
+{% endif %}
+{% endblock body %}

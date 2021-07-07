@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}More{% endblock title %}
+{% block cssLink %}more{% endblock cssLink %}
+{% block body %}
+    <div class="head">
+        <p>ALL PLACES</p>
+    </div>
+    <div class="end start">
+        <p>Here are all the places listed below.</p>
+    </div>
+    {% for i in posts %}
+        <div class="postView">
+            <div class="photoDiv">
+                <img class="photo" src="{{ i.photo.url }}" alt="{{ i.photo.name }}" height="250" width="500">
+            </div>
+            <div class="nameDiv">
+                <p class="topic">{{ i.title }}</p>
+                <p>{{ i.desc | truncatechars:250 }}
+            </div>
+            <div class="price">
+                <p>&#8377; {{ i.price }} / day</p>
+                <p>{{ i.city }}, {{ i.state }}</p>
+                <a href="/details/{{ i.title | slugify }}">
+                    <button type="button" class="inputs inpBtns">Details</button>
+                </a>
+            </div>
+        </div>
+    {% endfor %}
+    <div class="end">
+        <p>You have come to an end.</p>
+    </div>
+{% endblock body %}

@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap');
+
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+body {
+    background: url('../img/slbg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.container {
+    display: grid;
+    justify-content: center;
+    color: lightgreen;
+    vertical-align: middle;
+    font-size: 38px;
+    margin-top: 110px;
+    text-align: center;
+    width: 100%;
+}
+
+#loginTxt {
+    margin: 20px;
+}
+
+.inpFields {
+    display: grid;
+    justify-content: center;
+    background: transparent;
+    margin: 10px;
+    border: solid lightgreen 1px;
+    border-radius: 30px;
+    font-size: 18px;
+    padding: 12px;
+    padding-left: 12px;
+    padding-right: 12px;
+    width: 300px;
+    color: whitesmoke;
+    outline: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+}
+
+.btns {
+    background: transparent;
+    margin: auto;
+    display: grid;
+    justify-content: center;
+    font-size: 14px;
+    margin-top: 20px;
+    width: 100px;
+    transition: 300ms;
+}
+
+.btns:hover {
+    cursor: pointer;
+    width: 120px;
+    background-color: lightgreen;
+    color: black;
+}
+
+a {
+    text-decoration: none;
+}
+
+.upperright {
+    display: flex;
+    margin: 30px;
+    width: fit-content;
+    position: absolute;
+    right: 0px;
+}
+
+.upperP {
+    color: lightgreen;
+    margin: 10px;
+    width: fit-content;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.upperB {
+    margin: 0;
+    width: 110px;
+}
+
+.upperleft {
+    width: fit-content;
+    color: lightgreen;
+    font-size: 22px;
+    font-weight: bold;
+    margin: 35px;
+    margin-left: 70px;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.upper {
+    display: flex;
+    width: 100%;
+}
+
+.error {
+    color: orange;
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
+    margin: 30px;
+}
+
+.success {
+    color: aqua;
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
+    margin: 30px;
+}

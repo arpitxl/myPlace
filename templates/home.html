@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock title %}
+{% block cssLink %}home{% endblock cssLink %}
+{% block body %}
+    <div class="intro">
+        <p class="introTopic">Welcome to <strong>myPlace</strong></p>
+        <p class="introContent">
+            Your only destination to find the perfect place for you and your family.
+            Here you will find some of the best indoor and outdoor places that you may not see somewhere else.
+            You can search for a place that you want to book or you can make a Post of your
+            place if you want to give on rent.
+        </p>
+    </div>
+    <div class="topping">
+        <p>Here are some of the top listed places for you.</p>
+    </div>
+    {% for i in posts %}
+        <div class="postView">
+            <div class="photoDiv">
+                <img class="photo" src="{{ i.photo.url }}" alt="{{ i.photo.name }}" height="250" width="500">
+            </div>
+            <div class="nameDiv">
+                <p class="topic">{{ i.title }}</p>
+                <p>{{ i.desc | truncatechars:250 }}
+            </div>
+            <div class="price">
+                <p>&#8377; {{ i.price }} / day</p>
+                <p>{{ i.city }}, {{ i.state }}</p>
+                <a href="/details/{{ i.title | slugify }}">
+                    <button type="button" class="inputs inpBtns">Details</button>
+                </a>
+            </div>
+        </div>
+    {% endfor %}
+    <div class="more">
+        <a href="/more">
+            <button type="button" class="inputs inpBtns moreBtn">See More</button>
+        </a>
+    </div>
+    <footer id="footer">
+        <div class="down">
+            <p>Contact Us</p>
+            <form action="/" method="post">
+            {% csrf_token %}
+                <input type="text" name="name" class="footInp" placeholder="Enter your Name" required>
+                <input type="text" name="email" class="footInp" placeholder="Enter your Email" required>
+                <textarea class="footInp footTxt" placeholder="Enter your Message" rows="5" cols="1" required></textarea>
+                <button type="submit" class="inputs inpBtns">Send</button>
+            </form>
+        </div>
+    </footer>
+        {% if messages %}
+            <div class="messages">
+                {% for message in messages %}
+                <p {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+{% endblock body %}

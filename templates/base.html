@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock title %} | myPlace</title>
+    <link rel="stylesheet" href="../static/css/{% block cssLink %}{% endblock cssLink %}.css">
+</head>
+<body>
+    <nav class='navbar'>
+        <div class='logo'>
+            <p><a href="/" class="linkBtns">myPlace</a></p>
+        </div>
+        <ul class='navContent'>
+            <li class='navlist'><form action="/search/" method="get">
+            {% csrf_token %}
+                <input class="inputs" type="search" name='query' placeholder="Search">
+                <input class="inputs inpBtns" type="submit" value="Search">
+            </form></li>
+            <li class='navlist topright'><a href="/post" class="linkBtns">Post</a></li>
+            <li class='navlist topright'><a href="/#footer" class="linkBtns">Contact Us</a></li>
+            <li class='navlist topright'><a href="/logout" class="linkBtns">Logout</a></li>
+            <li class='navlist topright'>Welcome {{user.first_name}} !</li>
+        </ul>
+    </nav>
+    {% block body %}
+    {% endblock body %}
+    <p id="copyright">Copyright &copy; www.myPlace.com - All rights reserved</p>
+</body>

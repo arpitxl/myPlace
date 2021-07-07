@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | myPlace</title>
+    <link rel="stylesheet" href="../static/css/login.css">
+</head>
+<body>
+    <div class="upper">
+        <p class="upperleft">myPlace</p>
+        <div class="upperright">
+            <p class="upperP">Don't have an account ?</p>
+            <a href='/signup'>
+                <input class='inpFields btns upperB' type="button" value="SIGN UP">
+            </a>
+        </div>
+    </div>
+    <div class='container'>
+        <p id='loginTxt'>Login Here</p>
+        <form method='POST' action='/login/'>
+        {% csrf_token %}
+            <input class='inpFields' type="text" name="username" placeholder="Username" required>
+            <input class='inpFields' type="password" name="password" placeholder="Password" required>
+            <button class="inpFields btns" type="submit">LOGIN</button>
+        </form>
+    </div>
+    {% if messages %}
+    {% for message in messages %}
+    <p {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+    {% endfor %}
+    {% endif %}
+</body>

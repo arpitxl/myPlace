@@ -1,0 +1,178 @@
+{% extends 'base.html' %}
+{% block title %}{{ post.title }}{% endblock title %}
+{% block body %}
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap');
+
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+body {
+    background: url('../../static/img/slbg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.logo {
+    width: fit-content;
+    color: lightgreen;
+    font-size: 22px;
+    font-weight: bold;
+    margin: 35px;
+    margin-left: 70px;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.navContent {
+    display: flex;
+    color: lightgreen;
+    position: absolute;
+    margin: 12px;
+    right: 10px;
+}
+
+.navbar {
+    display: flex;
+}
+
+.navlist {
+    margin: 20px 10px;
+    list-style-type: none;
+    font-weight: bold;
+}
+
+.inputs {
+    border: solid lightgreen 1px;
+    border-radius: 30px;
+    font-size: 14px;
+    padding: 9px;
+    outline: none;
+    background: transparent;
+    color: white;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.inpBtns {
+    width: 80px;
+    transition: 300ms;
+    font-weight: bold;
+    color: white;
+}
+
+.inpBtns:hover {
+    background-color: lightgreen;
+    width: 90px;
+    color: black;
+    cursor: pointer;
+}
+
+.topright {
+    margin: 28px 16px;
+}
+
+.linkBtns {
+    text-decoration: none;
+    color: lightgreen;
+}
+
+#copyright {
+    text-align: center;
+    background-color: rgb(200, 200, 200);
+    color: black;
+    font-size: 16px;
+    padding: 4px;
+    font-weight: bold;
+}
+
+.postContent {
+    display: grid;
+    margin: 30px
+}
+
+.sec {
+    margin-left: 30px;
+    margin-bottom: 10px;
+    display: grid;
+    color: lightgreen;
+    font-size: 20px;
+}
+
+.puto {
+    border-radius: 12px;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.title {
+    font-size: 30px;
+    text-align: center;
+    color: lightgreen;
+    margin: 20px;
+}
+
+.first {
+    color: lightgreen;
+    font-size: 20px;
+}
+
+.desc {
+    text-align: justify;
+    margin: 40px;
+}
+
+.secBtn {
+    margin-bottom: 20px;
+    display: grid;
+    justify-content: center;
+}
+
+.success {
+    color: aqua;
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
+    margin: 30px;
+    margin-bottom: 50px;
+}
+
+.datetime {
+    width: 150px;
+}
+</style>
+<div class="postContent">
+    <p class="title">{{ post.title }}</p>
+    <img class="puto" src="{{ post.photo.url }}" width="1200px">
+    <div class="first">
+        <p><strong>Description:</strong></p>
+        <p class="desc">{{ post.desc }}</p>
+    </div>
+</div>
+<div class="sec">
+    <p><strong>Location :</strong>&emsp;{{ post.location }}, {{ post.city }}, {{ post.state }}</p>
+    <br>
+    <p><strong>Price :</strong>&emsp;&#8377; {{ post.price }}</p>
+    <br>
+    <p>
+        <strong>Select the Date and Time :</strong>&emsp;
+        <input class="datetime inputs" type="date" name="date">
+    </p>
+</div>
+<div class="secBtn">
+    <form method="post" action="/details/{{ post.title | slugify }}/">
+    {% csrf_token %}
+        <button class="inputs inpBtns" type="submit">Book</button>
+    </form>
+</div>
+{% if messages %}
+{% for message in messages %}
+<p {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+{% endfor %}
+{% endif %}
+{% endblock body %}

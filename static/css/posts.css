@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap');
+
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+body {
+    background: url('../img/slbg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.logo {
+    width: fit-content;
+    color: lightgreen;
+    font-size: 22px;
+    font-weight: bold;
+    margin: 35px;
+    margin-left: 70px;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.navContent {
+    display: flex;
+    color: lightgreen;
+    position: absolute;
+    margin: 12px;
+    right: 10px;
+}
+
+.navbar {
+    display: flex;
+}
+
+.navlist {
+    margin: 20px 10px;
+    list-style-type: none;
+    font-weight: bold;
+}
+
+.inputs {
+    border: solid lightgreen 1px;
+    border-radius: 30px;
+    font-size: 14px;
+    padding: 9px;
+    outline: none;
+    background: transparent;
+    color: white;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.inpBtns {
+    width: 80px;
+    transition: 300ms;
+    font-weight: bold;
+    color: white;
+}
+
+.inpBtns:hover {
+    background-color: lightgreen;
+    width: 90px;
+    color: black;
+    cursor: pointer;
+}
+
+.topright {
+    margin: 28px 16px;
+}
+
+.linkBtns {
+    text-decoration: none;
+    color: lightgreen;
+}
+
+#copyright {
+    text-align: center;
+    background-color: rgb(200, 200, 200);
+    color: black;
+    font-size: 16px;
+    padding: 2px;
+    font-weight: bold;
+}
+
+textarea {
+    resize: none;
+}
+
+.form {
+    padding: 50px;
+    color: lightgreen;
+    font-size: 20px;
+}
+
+.labels {
+    font-weight: bold;
+    margin: 40px;
+    margin-left: 30px;
+}
+
+.sel {
+    padding: 6px;
+    width: 150px;
+    border-radius: 8px;
+    margin-left: 40px;
+    outline: none;
+}
+
+.txt {
+    margin-left: 30px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.txts {
+    font-weight: 300;
+    margin-left: 30px;
+}
+
+.inps {
+    position: absolute;
+    left: 220px;
+}
+
+.img {
+    margin: 20px;
+    margin-left: 30px;
+}
+
+.topic {
+    display: grid;
+    margin-top: 90px;
+    justify-content: center;
+    text-align: left;
+    font-size: 30px;
+    color: lightgreen;
+}
+
+.btn {
+    display: grid;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.error {
+    color: orange;
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
+    margin: 30px;
+}
+
+.success {
+    color: aqua;
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
+    margin: 30px;
+}
+ .messages {
+    margin-bottom: 100px;
+ }
