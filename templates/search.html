@@ -1,6 +1,12 @@
-{% extends 'base.html' %}
-{% block title %}Search{% endblock title %}
-{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search | myPlace</title>
+</head>
+<body>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap');
@@ -148,7 +154,16 @@ body {
     outline: none;
 }
 
-#copyright {
+.copy1 {
+    text-align: center;
+    background-color: rgb(200, 200, 200);
+    color: black;
+    font-size: 16px;
+    padding: 2px;
+    font-weight: bold;
+}
+
+.copy2 {
     position: absolute;
     bottom: 0;
     width: 99.7%;
@@ -199,6 +214,22 @@ textarea {
     color: lightgreen;
 }
 </style>
+    <nav class='navbar'>
+        <div class='logo'>
+            <p><a href="/" class="linkBtns">myPlace</a></p>
+        </div>
+        <ul class='navContent'>
+            <li class='navlist'><form action="/search/" method="get">
+            {% csrf_token %}
+                <input class="inputs" type="search" name='query' placeholder="Search">
+                <input class="inputs inpBtns" type="submit" value="Search">
+            </form></li>
+            <li class='navlist topright'><a href="/post" class="linkBtns">Post</a></li>
+            <li class='navlist topright'><a href="/#footer" class="linkBtns">Contact Us</a></li>
+            <li class='navlist topright'><a href="/logout" class="linkBtns">Logout</a></li>
+            <li class='navlist topright'>Welcome {{user.first_name}} !</li>
+        </ul>
+    </nav>
     <div class="head">
         <p>Your Search Results...</p>
     </div>
@@ -227,9 +258,11 @@ textarea {
     <div class="end">
         <p>You have come to an end.</p>
     </div>
+    <p class="copy1">Copyright &amp; www.myPlace.com - All rights reserved</p>
     {% else %}
     <div class="end">
         Hmmph! Sorry we couldn't find anything...
     </div>
+    <p class="copy2">Copyright &amp; www.myPlace.com - All rights reserved</p>
     {% endif %}
-{% endblock body %}
+</body>
