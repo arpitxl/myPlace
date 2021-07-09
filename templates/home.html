@@ -26,7 +26,7 @@
             <div class="price">
                 <p>&#8377; {{ i.price }} / day</p>
                 <p>{{ i.city }}, {{ i.state }}</p>
-                <a href="/details/{{ i.title | slugify }}">
+                <a href="/details/{{ i.id }}">
                     <button type="button" class="inputs inpBtns">Details</button>
                 </a>
             </div>
@@ -44,7 +44,7 @@
             {% csrf_token %}
                 <input type="text" name="name" class="footInp" placeholder="Enter your Name" required>
                 <input type="text" name="email" class="footInp" placeholder="Enter your Email" required>
-                <textarea class="footInp footTxt" placeholder="Enter your Message" rows="5" cols="1" required></textarea>
+                <textarea class="footInp footTxt" name="msg" placeholder="Enter your Message" rows="5" cols="1" required></textarea>
                 <button type="submit" class="inputs inpBtns">Send</button>
             </form>
         </div>

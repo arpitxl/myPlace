@@ -3,6 +3,7 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import logout
 from posts.models import Post
+from index.models import SendMail
 
 # Create your views here.
 def home(request):
@@ -11,6 +12,11 @@ def home(request):
         'posts': posts
     }
     if request.method == "POST":
+        msgName = request.POST['name']
+        msgEmail = request.POST['email']
+        msg = request.POST['msg']
+        mail = SendMail(name=msgName, email=msgEmail, msg=msg)
+        mail.save()
         messages.success(request, 'Your message has been sent successfully.')
     if request.user.is_anonymous:
         return redirect('/login')
@@ -26,8 +32,7 @@ def seemore(request):
     return render(request, 'more.html', context)
 
 def details(request, pk):
-    spk = str(pk).replace('-', ' ').title()
-    post = Post.objects.get(title=spk)
+    post = Post.objects.get(id=pk)
     context = {
         'post': post,
     }
@@ -52,3 +57,6 @@ def search(request):
     if request.user.is_anonymous:
         return redirect('/login')
     return render(request, 'search.html', context)
+
+def handle404(request, exception):
+    return render(request, 'handle404.html')

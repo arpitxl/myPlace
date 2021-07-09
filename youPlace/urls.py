@@ -28,7 +28,9 @@ urlpatterns = [
     path('logout/', logoutUser, name='logout'),
     path('post/', posts, name="post"),
     path('search/', search, name="search"),
-    path('details/<str:pk>/', details, name="details"), 
+    path('details/<int:pk>/', details, name="details"), 
     path('more/', seemore, name='more'),
     path('admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+handler404 = "index.views.handle404"

@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% block title %}404{% endblock title %}
+{% block body %}
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap');
+
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+body {
+    background: url('../../static/img/slbg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.logo {
+    width: fit-content;
+    color: lightgreen;
+    font-size: 22px;
+    font-weight: bold;
+    margin: 35px;
+    margin-left: 70px;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.navContent {
+    display: flex;
+    color: lightgreen;
+    position: absolute;
+    margin: 12px;
+    right: 10px;
+}
+
+.navbar {
+    display: flex;
+}
+
+.navlist {
+    margin: 20px 10px;
+    list-style-type: none;
+    font-weight: bold;
+}
+
+.inputs {
+    border: solid lightgreen 1px;
+    border-radius: 30px;
+    font-size: 14px;
+    padding: 9px;
+    outline: none;
+    background: transparent;
+    color: white;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.inpBtns {
+    width: 80px;
+    transition: 300ms;
+    font-weight: bold;
+    color: white;
+}
+
+.inpBtns:hover {
+    background-color: lightgreen;
+    width: 90px;
+    color: black;
+    cursor: pointer;
+}
+
+.topright {
+    margin: 28px 16px;
+}
+
+.linkBtns {
+    text-decoration: none;
+    color: lightgreen;
+}
+
+#copyright {
+    display: none;
+    text-align: center;
+    background-color: rgb(200, 200, 200);
+    color: black;
+    font-size: 16px;
+    padding: 4px;
+    font-weight: bold;
+}
+
+.err {
+    text-align: center;
+    margin: 50px;
+    font-size: 50px;
+    color: white;
+}
+</style>
+<div class="err">
+    <p>404 - Page not found Error.</p>
+</div>
+{% endblock body %}
