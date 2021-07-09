@@ -165,7 +165,7 @@ body {
     </p>
 </div>
 <div class="secBtn">
-    <form method="post" action="/details/{{ post.title | slugify }}/">
+    <form method="post" action="/details/{{ post.id }}/">
     {% csrf_token %}
         <button class="inputs inpBtns" type="submit">Book</button>
     </form>
