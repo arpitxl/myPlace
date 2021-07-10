@@ -161,6 +161,28 @@ textarea {
     text-align: center;
     margin: 30px;
 }
+
  .messages {
     margin-bottom: 100px;
+ }
+
+ @media screen and (max-width: 500px) {
+    .introContent {
+        width: 90%;
+    }
+
+    .navContent {
+        display: grid;
+        margin-top: 90px;
+    }
+
+    .topic {
+        margin-top: 400px;
+        width: 400px;
+        font-size: 24px;
+    }
+
+    .labels {
+        margin-left: 10px;
+    }
  }

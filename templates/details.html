@@ -145,6 +145,26 @@ body {
 .datetime {
     width: 150px;
 }
+
+@media screen and (max-width: 500px) {
+    .introContent {
+        width: 90%;
+    }
+
+    .navContent {
+        display: grid;
+        margin-top: 90px;
+    }
+
+    .postContent img {
+        width: 310px;
+        height: 200px;
+    }
+
+    .postContent {
+        margin-top: 400px;
+    }
+}
 </style>
 <div class="postContent">
     <p class="title">{{ post.title }}</p>

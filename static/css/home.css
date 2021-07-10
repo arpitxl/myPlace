@@ -217,3 +217,45 @@ textarea {
     height: 70px;
     background-color: black;
 }
+
+@media screen and (max-width: 500px) {
+    .introContent {
+        width: 90%;
+    }
+
+    .navContent {
+        display: grid;
+        margin-top: 90px;
+    }
+
+    .intro {
+        margin-top: 400px;
+    }
+
+    .photoDiv img {
+        width: 310px;
+        height: 200px;
+    }
+
+    .postView {
+        display: grid;
+        justify-content: center;
+        height: 600px;
+    }
+
+    .nameDiv {
+        width: 310px;
+        position: absolute;
+        right: 0;
+        left: 0;
+        margin: auto;
+        margin-top: 200px;
+    }
+
+    .price {
+        height: 20vh;
+        position: absolute;
+        margin: auto;
+        margin-top: 450px;
+    }
+}

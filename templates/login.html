@@ -17,14 +17,16 @@
             </a>
         </div>
     </div>
-    <div class='container'>
-        <p id='loginTxt'>Login Here</p>
-        <form method='POST' action='/login/'>
-        {% csrf_token %}
-            <input class='inpFields' type="text" name="username" placeholder="Username" required>
-            <input class='inpFields' type="password" name="password" placeholder="Password" required>
-            <button class="inpFields btns" type="submit">LOGIN</button>
-        </form>
+    <div class="contSec">
+        <div class='container'>
+            <p class='loginTxt'>Login Here</p>
+            <form method='POST' action='/login/'>
+            {% csrf_token %}
+                <input class='inpFields' type="text" name="username" placeholder="Username" required>
+                <input class='inpFields' type="password" name="password" placeholder="Password" required>
+                <button class="inpFields btns" type="submit">LOGIN</button>
+            </form>
+        </div>
     </div>
     {% if messages %}
     {% for message in messages %}
