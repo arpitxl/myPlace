@@ -29,10 +29,10 @@
                 <button class="inpFields btns" type="submit">SIGN UP</button>
             </form>
         </div>
+        {% if messages %}
+        {% for message in messages %}
+        <p {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+        {% endfor %}
+        {% endif %}
     </div>
-    {% if messages %}
-    {% for message in messages %}
-    <p {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
-    {% endfor %}
-    {% endif %}
 </body>
